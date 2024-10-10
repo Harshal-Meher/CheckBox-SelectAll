@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        function CheckInput() {
+            let flag = document.getElementById('chkId').checked;
+            let len =document.frmChk.elements.length;
+            // alert(len);
+            if(flag){
+                for(let i=0 ; i<len; i++) {
+                    var ele = document.frmChk.elements[i];
+                    // alert(ele);
+                    if(ele.name == 'chkCources[]'){
+                        ele.checked =true;
+                    }
+                }
+            }
+            else {
+                for(let i=0 ; i<len; i++) {
+                    var ele = document.frmChk.elements[i];
+                    // alert(ele);
+                    if(ele.name == 'chkCources[]'){
+                        ele.checked =false;
+                    }
+                }  
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <form action="" name="frmChk">
+        <table>
+            <tr>
+                <td>
+                    <input type="checkbox" name="chk" id="chkId" onclick="CheckInput();">
+                </td>
+                <td>CheckAll</td>
+
+            </tr>
+            <tr>
+            <td colspan="2">
+                <table>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="chkCources[]" id="chkCourcesId" value="php">
+                        </td>
+                        <td>PHP</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="chkCources[]" id="chkCourcesId" value="java">
+                        </td>
+                        <td>JAVA</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="chkCources[]" id="chkCourcesId" value="Springboot">
+                        </td>
+                        <td>SpringBoot</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="chkCources[]" id="chkCourcesId" value="oracle">
+                        </td>
+                        <td>Oracle</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+               
+      </table>
+                        
+    </form>
+</body>
+</html>
