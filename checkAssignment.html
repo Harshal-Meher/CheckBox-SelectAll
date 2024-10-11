@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-
-        function CheckInput() {
-            let flag = document.getElementById('chkId').checked;
+        function CheckAll() {
+            let flag = document.getElementById('checkId').checked;
             let len =document.frmChk.elements.length;
+            let singleClick = true;
             // alert(len);
-            if(flag){
+            if(flag) {
+
                 for(let i=0 ; i<len; i++) {
                     var ele = document.frmChk.elements[i];
                     // alert(ele);
-                    if(ele.name == 'chkCources[]'){
+                    if(ele.name == 'chkName[]'){
                         ele.checked =true;
                     }
                 }
@@ -23,13 +24,36 @@
                 for(let i=0 ; i<len; i++) {
                     var ele = document.frmChk.elements[i];
                     // alert(ele);
-                    if(ele.name == 'chkCources[]'){
+                    if(ele.name == 'chkName[]'){
                         ele.checked =false;
                     }
                 }  
             }
         }
+        function SingleClick() 
+        {
+            let flag =  document.getElementById('checkId').checked; 
+            let len = document.frmChk.elements.length;
+            // let click = true;
 
+            for (let i = 0; i < len; i++) 
+            {
+                var ele = document.frmChk.elements[i];
+                
+                if (ele.name == 'chkName[]' && !ele.checked) {
+                    click = false;
+                    ele.checked=true;
+                    // flag = click;
+                }
+            }
+
+            // document.getElementById('checkId').checked = click;
+            // flag = click;
+          
+           }
+
+        
+        
     </script>
 </head>
 <body>
@@ -37,50 +61,47 @@
         <table>
             <tr>
                 <td>
-                    <input type="checkbox" name="chk" id="chkId" onclick="CheckInput();">
+                    <input type="checkbox" name="check" id="checkId" onclick="CheckAll()">
                 </td>
                 <td>CheckAll</td>
-
             </tr>
             <tr>
-            <td colspan="2">
-                <table>
-                    <tr>
-                        <td>
-                            <input type="checkbox" name="chkCources[]" id="chkCourcesId" value="php">
-                        </td>
-                        <td>PHP</td>
-                    </tr>
-                </table>
-                <table>
-                    <tr>
-                        <td>
-                            <input type="checkbox" name="chkCources[]" id="chkCourcesId" value="java">
-                        </td>
-                        <td>JAVA</td>
-                    </tr>
-                </table>
-                <table>
-                    <tr>
-                        <td>
-                            <input type="checkbox" name="chkCources[]" id="chkCourcesId" value="Springboot">
-                        </td>
-                        <td>SpringBoot</td>
-                    </tr>
-                </table>
-                <table>
-                    <tr>
-                        <td>
-                            <input type="checkbox" name="chkCources[]" id="chkCourcesId" value="oracle">
-                        </td>
-                        <td>Oracle</td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-               
-      </table>
-                        
+                <td colspan="2">
+                    <table>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="chkName[]" id="chkId" value="php" onclick="SingleClick()">
+                            </td>
+                            <td>PHP</td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="chkName[]" id="chkId" value="java">
+                            </td>
+                            <td>Java</td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="chkName[]" id="chkId" value="SpringBoot">
+                            </td>
+                            <td>SpringBoot</td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="chkName[]" id="chkId" value="python">
+                            </td>
+                            <td>Python</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
     </form>
 </body>
 </html>
